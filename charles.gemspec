@@ -2,11 +2,11 @@
 require File.expand_path('../lib/charles/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.authors       = ["Jason Ling"]
+  gem.authors       = ["Jason Ling Xiaowei"]
   gem.email         = ["jason@jeyel.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = 'Charles the Content Extractor in Ruby'
+  gem.summary       = 'Charles the Content Extractor in Ruby'
+  gem.homepage      = "https://github.com/jlxw/charles"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
