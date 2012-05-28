@@ -1,19 +1,28 @@
+require 'charles/images'
 require 'charles/internal_attributes'
 
 module Charles
   class Document
     include Charles::InternalAttributes
+    include Charles::Images
     
-    def initialize(input)
+    def initialize(input, options={})
       @document = Nokogiri::HTML.parse(input)
       @document.search("script, style").remove
       @nodes = @document.search('body *').select{|_n|
         _n.clean_inner_tokens_text.size > 30 #arbitrary, minimum inner text limit of 30 chars
       }
+      @options = options
     end
     
+    def logger; Charles.logger; end
+    
     def content(seeds={})
-      refine_content_node(calculate_content_nodes(seeds).first[:node]).clean_inner_text
+      refine_content_node(content_node(seeds)).clean_inner_text
+    end
+    
+    def content_node(seeds={})
+      calculate_content_nodes(seeds).first[:node]
     end
     
     def calculate_content_nodes(seeds={})

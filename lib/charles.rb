@@ -14,6 +14,12 @@ require "charles/misc"
 
 module Charles
   # Your code goes here...
+  def self.logger=(logger)
+    @logger = logger
+  end
+  def self.logger
+    @logger ||= Logger.new(STDERR)
+  end
 end
 
 module Enumerable
