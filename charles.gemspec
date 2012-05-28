@@ -14,4 +14,8 @@ Gem::Specification.new do |gem|
   gem.name          = "charles"
   gem.require_paths = ["lib"]
   gem.version       = Charles::VERSION
+  
+  gem.add_dependency "ferret"
+  gem.add_dependency "nokogiri"
+  gem.add_dependency "htmlentities"
 end

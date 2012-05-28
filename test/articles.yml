@@ -1,0 +1,189 @@
+-
+  :file: '20120525_1525_straitstimes.com'
+  :url: 'http://www.straitstimes.com/BreakingNews/Singapore/Story/STIStory_802924.html'
+  :expected:
+    :title: 'PAP: Chance to start afresh in Hougang'
+    :lede: 'PM Lee, Khaw Boon Wan urge residents to back young candidate'
+    :author: 'RACHEL CHANG'
+    :image: 'http://www.straitstimes.com/STI/STIMEDIA/image/20120524/ST_IMAGES_RALLYSHARPe.jpg'
+-
+  :file: '20120525_1534_bbc.co.uk'
+  :url: 'http://www.bbc.co.uk/news/world-africa-18202545'
+  :expected:
+    :title: 'French President Hollande in Afghanistan on troop visit'
+    :lede: 'French President Francois Hollande has arrived in Afghanistan on a previously unannounced visit.'
+    :author: nil
+    :image: 'http://news.bbcimg.co.uk/media/images/60479000/jpg/_60479902_hollandeafp.jpg'
+    :images:
+      - 'http://news.bbcimg.co.uk/media/images/58929000/gif/_58929603_afghanistan_troops_464_jan2012.gif'
+-
+  :file: '20120525_1727_bbc.co.uk'
+  :url: 'http://www.bbc.co.uk/news/health-18190352'
+  :expected:
+    :title: 'Male pill: gene discovery may lead to contraceptive'
+    :lede: 'It may be possible to develop a new male contraceptive pill after researchers in Edinburgh identified a gene critical for the production of healthy sperm.'
+    :author: nil
+    :image: 'http://news.bbcimg.co.uk/media/images/60456000/jpg/_60456207_c0126522-human_sperm_sem_x2.jpg'
+-
+  :file: '20120525_1730_channelnewsasia.com'
+  :url: 'http://www.channelnewsasia.com/stories/singaporelocalnews/view/1203419/1/.html'
+  :expected:
+    :title: 'Cooling-off Day for Hougang By-Election'
+    :lede: 'SINGAPORE: It is Cooling-off Day for the Hougang By-Election on Friday.'
+    :author: nil
+    :image: 'http://www.channelnewsasia.com/components/display_image.php?id=494293'
+-
+  :file: '20120525_1733_channelnewsasia.com'
+  :url: 'http://www.channelnewsasia.com/stories/singaporebusinessnews/view/1203496/1/.html'
+  :expected:
+    :title: "Singapore's manufacturing output contracts in April"
+    :lede: "SINGAPORE: Singapore's manufacturing output contracted unexpectedly for the second consecutive month in April, dragged down by a drop in production from the biomedical and electronics sectors."
+    :author: nil
+    :image: 'http://www.channelnewsasia.com/components/display_image.php?id=466095'
+-
+  :file: '20120525_1736_nytimes.com'
+  :url: 'http://www.nytimes.com/2012/05/26/world/middleeast/egypt-presidential-election-runoff.html?_r=1&ref=global-home#h[]'
+  :expected:
+    :title: "Muslim Brotherhood Candidate to Face Former Prime Minister in Egyptian Runoff"
+    :lede: "CAIRO — The Islamist candidate of the Muslim Brotherhood will face former President Hosni Mubarak’s last prime minister in a runoff to become Egypt’s first freely elected president, several independent vote counts concluded Friday morning."
+    :author: 'DAVID D. KIRKPATRICK'
+    :image: 'http://graphics8.nytimes.com/images/2012/05/26/global-home/26egypt-image/26egypt-image-articleInline.jpg'
+-
+  :file: '20120525_1743_nytimes.com'
+  :url: 'http://bits.blogs.nytimes.com/2012/05/24/mark-zuckerberg-officially-a-billionaire/?ref=technology'
+  :expected:
+    :title: "Mark Zuckerberg Officially a Billionaire"
+    :lede: "Mark Zuckerberg, the founder of Facebook, is now officially a billionaire. Until now, Mr. Zuckerberg has been staggeringly rich only on paper."
+    :author: 'NICK BILTON'
+    :image: 'http://graphics8.nytimes.com/images/2012/05/23/technology/bits-zuck-stock/bits-zuck-stock-tmagArticle.jpg'
+-
+  :file: '20120525_1747_techcrunch.com'
+  :url: 'http://techcrunch.com/2012/05/24/manpacks-startup-perks-condoms/'
+  :expected:
+    :title: "Manpacks Launches Its Startup Perks Program With Free Condoms"
+    :lede: "Well, that’s one way to get some attention for your product launch."
+    :author: 'Anthony Ha'
+    :image: 'http://tctechcrunch2011.files.wordpress.com/2012/05/photo-51.jpg?w=288'
+-
+  :file: '20120528_0929_washingtonpost.com'
+  :url: 'http://www.washingtonpost.com/world/middle_east/un-security-council-blames-syrian-forces-for-shelling-houla-condemns-attacks-on-civilians/2012/05/27/gJQAjoyLvU_story.html'
+  :expected:
+    :title: "UN Security Council blames Syrian forces for shelling Houla, condemns attacks on civilians"
+    :lede: "UNITED NATIONS — The U.N. Security Council on Sunday blamed the Syrian government for attacking residential areas of the town of Houla with artillery and tank shelling and also condemned the close-range killings of civilians there — but avoided saying who was responsible for the massacre of more than 100 men, women and children."
+    :author: 'Associated Press'
+    :image: nil
+-
+  :file: '20120528_0931_latimes.com'
+  :url: 'http://www.latimes.com/sports/motorracing/la-sp-indy-500-20120528,0,357526.story'
+  :expected:
+    :title: "Dario Franchitti is last leader standing, wins his third Indy 500"
+    :lede: "Dario Franchitti rebuffs Takuma Sato's frantic last-lap bid to win Indy 500 with a record 34 lead changes. It's a sentimental victory as the race honors the late Dan Wheldon, Franchitti's close friend."
+    :author: 'Jim Peltz'
+    :image: 'http://www.trbimg.com/img-4fc2ce93/turbine/la-sp-indy-500-20120528-001/600'
+-
+  :file: '20120528_0938_entertainment.time.com'
+  :url: 'http://entertainment.time.com/2012/05/27/the-palme-damour/?iid=ent-main-lede'
+  :expected:
+    :title: "The Palme d'Amour: Director Michael Haneke Takes Cannes' Top Prize—Again"
+    :lede: "Michael Haneke's quietly magnificent story of love on the brink of death takes the top prize, while seven American films oozing with star quality get no love at all"
+    :author: 'Richard Corliss'
+    :image: 'http://timeentertainment.files.wordpress.com/2012/05/amour.jpg?w=600&h=400&crop=1'
+-
+  :file: '20120528_0943_bloomberg.com'
+  :url: 'http://www.bloomberg.com/news/2012-05-28/euro-u-s-equity-futures-advance-on-greece-optimism.html'
+  :expected:
+    :title: "Euro, U.S. Equity Futures Advance on Greece Optimism"
+    :lede: "The euro strengthened for the first time in five days, U.S. equity-index futures advanced and oil gained after Greek opinion polls showed voters backing parties that support the European Union’s bailout, easing concern the country will exit the currency bloc."
+    :author: 'Bloomberg News'
+    :image: nil
+-
+  :file: '20120528_0947_reuters.com'
+  :url: 'http://www.reuters.com/article/2012/05/27/us-nuclear-iran-uranium-idUSBRE84O0SN20120527'
+  :expected:
+    :title: "Iran not ready for visit to suspect nuclear site"
+    :lede: "The U.N. nuclear watchdog has not yet given good enough reasons to visit an Iranian site where it suspects there may have been experiments for developing nuclear weapons, Iranian media said."
+    :author: 'Marcus George'
+    :image: 'http://s1.reutersmedia.net/resources/r/?m=02&d=20120527&t=2&i=612137389&w=&fh=&fw=&ll=700&pl=300&r=CBRE84O17PO00'
+    :images:
+      - 'http://s1.reutersmedia.net/resources/r/?m=02&d=20120527&t=2&i=612137390&w=&fh=&fw=&ll=700&pl=300&r=CBRE84O17PP00'
+-
+  :file: '20120528_1106_reuters.com'
+  :url: 'https://www.eff.org/deeplinks/2012/05/megaupload-user-asks-court-files-back-again'
+  :expected:
+    :title: "Megaupload User Asks Court for Files Back. Again."
+    :lede: "You may remember that EFF’s client, Kyle Goodwin, asked the court to return the legal files he lost when Megaupload was seized last January. Since then, we’ve been to court, both for a hearing and a mediation, and nothing has changed. The key problem: the government has failed to help third parties like Kyle get access to their data. So we have no choice but to go back to court."
+    :author: 'Julie Samuels'
+    :image: nil
+-
+  :file: '20120528_1109_musicthing.blogspot.co.uk'
+  :url: 'http://musicthing.blogspot.co.uk/2005/05/tiny-music-makers-pt-3-thx-sound.html'
+  :expected:
+    :title: "TINY MUSIC MAKERS: Pt 3: The THX Sound"
+    :lede: '"I like to say that the THX sound is the most widely-recognized piece of computer-generated music in the world," says Andy Moorer. "This may or may not be true, but it sounds cool!"'
+    :author: 'Tom Whitwell'
+    :image: 'http://photos1.blogger.com/blogger/4749/510/1600/moorer.jpg'
+-
+  :file: '20120528_1114_mobileinc.co.uk'
+  :url: 'http://www.mobileinc.co.uk/2012/03/ive-started-a-newsletter-the-mobile-inc-digest/'
+  :expected:
+    :title: "I’ve Started A Newsletter – The Mobile Inc Digest"
+    :lede: "I’m spending so much time designing, working and recovering (shoulder surgery ouch) that there’s less and less time to blog right now. However I’m reading and researching more than ever."
+    :author: 'Murat'
+    :image: nil
+-
+  :file: '20120528_1119_forbes.com'
+  :url: 'http://www.forbes.com/sites/haydnshaughnessy/2012/05/26/why-crisis-in-spain-this-week-should-have-us-more-worried-than-greece/'
+  :expected:
+    :title: "Why Crisis in Spain This Week Became More Important Than Greece"
+    :lede: "Local debt is the big untold story of the Euro crisis and, if that was not apparent before, it became glaringly so when Catalonia’s President this week told the world his autonomous Catalan Government would struggle to meet its bills at the end of this month."
+    :author: 'Haydn Shaughnessy'
+    :image: nil
+-
+  :file: '20120528_1122_techcrunch.com'
+  :url: 'http://techcrunch.com/2012/05/27/hey-kids-get-off-my-lawn-the-once-and-future-visual-programming-environment/'
+  :expected:
+    :title: "Hey Kids, Get Off My Lawn: The Once And Future Visual Programming Environment"
+    :lede: ""
+    :author: 'Kwindla Hultman Kramer'
+    :image: 'http://tctechcrunch2011.files.wordpress.com/2012/05/seededfertilizedlawn.jpg?w=288'
+-
+  :file: '20120528_1126_blogs.adobe.com'
+  :url: 'http://blogs.adobe.com/digitalmarketing/personalization/conversion-optimization/understand-the-math-behind-it-all-bayesian-statistics/'
+  :expected:
+    :title: "Understand the Math Behind it All: Bayesian Statistics"
+    :lede: "Most mar­ket­ing peo­ple have only a pass­ing inter­ac­tion with sta­tis­tics, and often times only under­stand it as a mea­sure of how it has impacted their daily life. One of the funny things peo­ple don’t real­ize is that there are two com­pletely dif­fer­ent com­pet­ing schools of thought when it comes to sta­tis­tics. Most peo­ple are famil­iar with fre­quen­tist sta­tis­tics, hav­ing dealt with things like nor­mal dis­tri­b­u­tion, bell curves, and estab­lished prob­a­bil­i­ties. The other school, Bayesian sta­tis­tics, is a realm that fewer peo­ple are famil­iar with, but just as applic­a­ble. In fact, the move over the last few years is for more peo­ple to change from the fre­quen­tist model to Bayesian techniques."
+    :author: 'Andrew Anderson'
+    :image: nil
+-
+  :file: '20120528_1142_thestar.com.my'
+  :url: 'http://thestar.com.my/news/story.asp?file=/2012/5/27/nation/11368993&sec=nation'
+  :expected:
+    :title: "Videogame music writers on tour here at Istana Budaya"
+    :lede: "PETALING JAYA: Computer game soundtracks are as recognisable as movie scores these days and have garnered a huge following of fans."
+    :author: 'TAN KIT HOONG and CHONG JINN XIUNG'
+    :image: 'http://thestar.com.my/archives/2012/5/27/nation/n_10Tallarico.jpg'
+-
+  :file: '20120528_1146_suntimes.com'
+  :url: 'http://www.suntimes.com/sports/autoracing/12812647-419/dario-franchitti-wins-his-third-indy-500-in-honor-of-late-friend-dan-wheldon.html'
+  :expected:
+    :title: "Dario Franchitti wins his third Indy 500 in honor of late friend Dan Wheldon"
+    :lede: "INDIANAPOLIS — You can debate whether the Indianapolis 500 is the world’s greatest race."
+    :author: 'HERB GOULD'
+    :image: 'http://www.suntimes.com/csp/cms/sites/dt.common.streams.StreamServer.cls?STREAMOID=G9CD0HBsfM6Ez9hJq$J_vs$daE2N3K4ZzOUsqbU5sYtfyOFkwIFfaZvhenwZq5N7WCsjLu883Ygn4B49Lvm9bPe2QeMKQdVeZmXF$9l$4uCZ8QDXhaHEp3rvzXRJFdy0KqPHLoMevcTLo3h8xh70Y6N_U_CryOsw6FTOdKL_jpQ-&CONTENTTYPE=image/jpeg'
+-
+  :file: '20120528_1148_asiaone.com'
+  :url: 'http://news.asiaone.com/News/Latest%2BNews/Singapore/Story/A1Story20120528-348743.html'
+  :expected:
+    :title: "Choo: Back on the ground today"
+    :lede: "He may not have been successful in the Hougang by-election but, for People's Action Party's (PAP's) Desmond Choo, it is back to work today, helping residents on the ground."
+    :author: 'Gwendolyn Ng'
+    :image: 'http://news.asiaone.com/A1MEDIA/news/05May12/images/20120528.083508_dchood.jpg'
+-
+  :file: ''
+  :url: ''
+  :expected:
+    :title: ""
+    :lede: ""
+    :author: ''
+    :image: ''
+

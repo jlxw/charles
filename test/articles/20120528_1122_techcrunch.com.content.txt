@@ -1,0 +1,58 @@
+Editor’s Note: This guest post is written by Kwindla Hultman Kramer, who is the CEO of Oblong Industries — the company known for developing the gestural interfaces in the film Minority Report. The company’s current customers and partners include Boeing, SAP, GE, and others. Follow him on Twitter @kwindla.
+
+    When I was a boy of 14, my father was so ignorant I could hardly stand to have the old man around. But when I got to be 21, I was astonished at how much the old man had learned in seven years
+
+Mark Twain, ”Old Times on the Mississippi”
+Atlantic Monthly, 1874
+
+When I was a graduate student at the MIT Media Lab fifteen years ago, my research group went on a retreat every year with Famous Computer Scientists from Xerox PARC. I greatly admired these people and their work. But I was young and in a hurry to get where I thought I was going. And it sometimes seemed that every time us young folks talked about our research, or showed a demo, someone would say something like, “oh, that’s very nice, when we did that at PARC ….”
+
+Fast forward to the present. For the last few years, every time I see a new piece of small, open, hackable, networked hardware, or a new reputation engine, or a generative art piece, or a product built around location tracking plus real-time information push, or — well, you get the idea — I have to bite my tongue and think of the PARC folks to keep myself from saying, “oh, that’s very nice, when we did that at the Media Lab ….”
+
+All of which just proves that the wheel of history revolves. New work is always new, by definition, even if it’s not entirely new (which nothing can ever be).
+
+That’s a long introduction to a short essay on programming tools. In particular, I’ve been intrigued by the online discussion recently around some very nice work on interactive development environments by Bret Victor and a related Kickstarter project — and now YCombinator company — called Light Table, by Chris Granger.
+
+Bret’s stuff is great. And Light Table is great. If you’re anything like me, you want to use the tools these two people are building. Go contribute to the Kickstarter project right now.
+
+The funny thing is, though, that we had pretty interesting versions of these tools twenty years ago. By the late 1980s, professional LISP and Smalltalk environments were more than a little like Light Table.
+
+When I discovered Visual Age Smalltalk in 1996 I was blown away. Visual Age (and other Smalltalk tools) were built around snippets of code representing objects and methods. There were very few file operations. You could run your code and make live changes to the source, which were reflected in the running process.
+
+There was no distinction between the development environment and the runtime. You could save out your working “image”. There were good tools for managing forks, versioning and merge — not just of source code, but of the full system image.
+
+If you were writing a GUI application in Visual Age Smalltalk, all the elements on screen were interactively inspectable from inside the debugger. And all the system internals, including the virtual environment, the compiler and the debugger, were introspectible and hackable just by writing a little more Smalltalk code.
+
+When I raved about this to my friends, some of whom had old SparcStations sitting in their coat closets running their home networks, they said, “oh yeah, that’s nice, when we built all that stuff into our LISP machines ten years ago at Symbolics ….”
+
+So one question we might ask is why programming tools like this haven’t taken over, if we’ve had them for a long time and they are, indeed, generally better in objective or widely agreed upon ways?
+
+I can think of a few possible reasons.
+
+First, the requirement of a dynamic runtime to build these dynamic environments on top of is actually quite a big deal. Bret’s work is in JavaScript. Light Table targets JavaScript, Clojure, and Python.
+
+These days, we have two classes of languages.
+
+We use heavily engineered languages that are very, very static in their aesthetic and implementation choices. Truly interactive development environments are difficult to build for these C-family languages. And C-family languages have remained dominant until very recently, because they have both real advantages and “worse is better,” inertial advantages.
+
+On the other hand, we have dynamic languages that, relatively speaking, are really just prototypes. Javascript and Ruby and Python are useful and interesting. But much of the work on the dynamic languages side of the fence seems to go into tweaking syntax, reinventing the wheel at the VM level, and community-based library development. All of which I’m actually a big fan of, but goodness, it does sort of make me pine for that 200-person (I’m guessing) crackerjack team working on VisualAge for ten years at IBM.
+
+Maybe Google — in some ways the IBM of 2012 — will get us there again with JavaScript and V8. Then we’ll have a dynamic language stack that is fully engineered in the same sense that IBM Smalltalk and Symbolics LISP were.
+
+Second, I think that the web-enabled explosion of programming and programmers has set back the development of software tooling just as it (temporarily) set back user interface design.
+
+Again, I hasten to make clear that I think what the web hath wrought is wonderful, on balance. But there’s no free lunch, and for ten years most of the tech world turned its attention to building out a new global platform that could not, in its early days, support very much in the way of new user interfaces or sophisticated runtime architecture work.
+
+The web has grown up, though. The capabilities of modern JavaScript frameworks attest to that, as does the low-level work on implementations like V8.
+
+Third, screen real estate matters. The traditional “everything is a file” approach is wonderfully portable. You can build an environment for working with files even for a very small display. Heck, you can work with files if all you have is a line-mode terminal. But flexibly arranged code snippets and fully interactive graphical debuggers require a lot of pixels.
+
+And there aren’t always enough pixels. I’m amazed at how often I visit Big Companies and see full-time programmers working at their desks on single, 15″ monitors. That’s an enormous missed opportunity to enable productivity.
+
+Pixels have gotten really cheap, though, and come in more and more form factors. We actually could build, today, a development environment designed to make use of a laptop screen and a tablet screen, simultaneously. A MacBook Air and an iPad, used together, would give me more pixels than I had on my dual-monitor desktop back when I fired up Visual Age Smalltalk every day.
+
+Finally, if we really want to get away from files and static representations of programs, maybe we want to get away from text altogether. There’s been lots of good academic work on graphical — as in, really, graphical — programming environments over the years. But that’s another entire conversation.
+
+Here are a couple of good pages on LISP Machines, which really were the future before the future was quite possible to build. And, as far as I know, the closest anyone has ever gotten to creating a full dynamic environment for a C-language platform is Alexia Massalin’s Synthesis operating system. If you are a programmer of any kind, I’ll wager that Alexia’s dissertation will blow your mind.
+
+So, let’s make the old tools new again. I want to use Light Table, and whatever Light Table catalyzes that we can’t yet imagine. But I do promise that when that new thing comes along, I’ll tell you we built an early version of it at the Media Lab at the tail end of the last century.
