@@ -12,24 +12,32 @@ class CharlesTest < Test::Unit::TestCase
   end
   
   def test_articles
+    _scores = {:content => [], :title => [], :image => []}
     TEST_ARTICLES.each{|article|
       next if article[:file].empty?
       input = File.read("test/articles/#{article[:file]}.html")
       document = Charles::Document.new(input, :url => article[:url])
       result = document.content
       expected = File.read("test/articles/#{article[:file]}.content.txt")
-      #pp Charles::Misc.compare_strings(result, expected)
-
-      _title_score = Charles::Misc.compare_strings(document.title, article[:expected][:title])
-        pp [document.title, article[:expected][:title], _title_score]
-      if _title_score < 0.1
-#        pp [document.title, article[:expected][:title], _title_score]
-      end
+      content_score = Charles::Misc.compare_strings(result, expected)
+      #pp [content_score, result, expected, article[:url]] if content_score < 0.1
+      _scores[:content] << content_score
+      title_score = Charles::Misc.compare_strings(document.title, article[:expected][:title])
+      #pp [title_score, document.title, article[:expected][:title], article[:url]] if title_score < 0.1
+      _scores[:title] << title_score
       
-      unless document.image == article[:expected][:image] || !article[:expected][:image]
-        #pp(document.images.index(article[:expected][:image]))
+      if article[:expected][:image]
+        _scores[:image] << (document.images.index(article[:expected][:image]) ? 1 : 0)
       end
     }
+    
+    assert _scores[:content].select{|score| score < 0.5}.mean > 0.2
+    assert _scores[:content].select{|score| score < 0.1}.size < 4
+    assert _scores[:content].select{|score| score < 0.01}.size < 1
+    assert _scores[:title].select{|score| score < 0.5}.mean > 0.15
+    assert _scores[:title].select{|score| score < 0.1}.size < 5
+    assert _scores[:title].select{|score| score < 0.01}.size < 2
+    assert _scores[:image].mean > 0.4
   end
   
   def test_clean_title
@@ -42,7 +50,8 @@ class CharlesTest < Test::Unit::TestCase
       'NASA Working With Private Sector — Letters to the Editor - WSJ.com',
       'San Francisco Symphony Orchestra | Radicals Ready for the Road - WSJ.com']
     document = Charles::Document.new(input, :url => article[:url], :sample_titles => sample_titles)
-    pp document.clean_title
+    assert document.title.include?('WSJ.com')
+    assert !document.clean_title.include?('WSJ.com')
   end
   
   
