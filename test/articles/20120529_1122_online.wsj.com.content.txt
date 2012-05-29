@@ -1,0 +1,35 @@
+Computer malware described as "the most sophisticated cyberweapon yet unleashed" has been uncovered in computers in the Middle East and may have infected machines in Europe, according to reports from antivirus researchers and software makers in Russia, Hungary and Ireland.
+
+The malware, dubbed Worm.Win32.Flame, is unusual in its complexity, size and the multitude of ways it has of harvesting information from an infected computer including keyboard, screen, microphone, storage devices, network, Wi-Fi, Bluetooth, USB and system processes.
+
+The malware is called "Flame" by Kaspersky Labs, a Moscow-based antivirus software maker, but also known as sKyWIper by the Hungarian Laboratory of Cryptography and System Security (CrySyS Lab).
+
+Both Kaspersky Labs and CrySyS Lab said it was likely the malware was developed by a government-sponsored entity.
+
+"The geography of the targets (certain states are in the Middle East) and also the complexity of the threat leaves no doubt about it being a nation state that sponsored the research that went into it," Kaspersky Labs said in a report.
+
+"The results of our technical analysis supports the hypotheses that sKyWIper was developed by a government agency of a nation state with significant budget and effort, and it may be related to cyberwarfare activities," a CrySyS Lab report said. "sKyWIper is certainly the most sophisticated malware we encountered during our practice; arguably, it is the most complex malware ever found."
+
+Although the virus has just been detected, there was evidence that it may have been in operation for at least two years.
+
+According to Orla Cox, Security Operations Manager for Symantec Corp. SYMC +0.87% in Ireland, the complexity, the level of professionalism and the sheer quantity of data it was harvesting was evidence that this was a cyberespionage tool.
+
+"Usually with a standard attack malware writers will try to limit the amount of data coming off the machine because otherwise it is very hard to find what you are looking for," she said. "This is like old-school espionage. Take everything you can and sift through it. This shows there is an agency at the back end that has the bandwidth to deal with this."
+
+Vitaly Kamluk, chief malware expert for Kaspersky Labs, said there were many pointers to it being a weapon, not the least of which was how highly-targeted it was. According to their investigations, only 382 infections have been reported, 189 of which were in Iran, and the malware targeted individuals rather than organizations.
+
+CrySyS Lab said it may have seen early evidence of the malware back in 2007 in Europe and an infection in the United Arab Emirates in 2008. Both Symantec and Kaspersky suggested it dated from 2010.
+
+Mr. Kamluk said the malware was most likely introduced by a USB stick or other removable drive. Once injected, the malware would contact one of the many command and control servers around the world and download additional modules as needed. It used the same technique as Stuxnet, an earlier highly sophisticated malware, to seek out other machines to infect.
+
+"Unlike Stuxnet," said Mr. Kamluk, "[Flame] was much more sophisticated and not simply trying to infect every machine." He said the malware was also able to find out information about other devices around it. By using Bluetooth it could scan for other devices, such as mobile phones or laptops.
+
+While the finger of suspicion for Stuxnet was pointed at a number of suspects, including both U.S. and Israeli intelligence agencies, Mr. Kamluk said there was no evidence to suggest who might be responsible for Flame, and it was pure speculation to attribute blame.
+
+"A lot of the text strings we have been able to extract are written in very good English," he said. "But that does not tell us very much."
+
+According to Ms. Cox, the low number of infections, and the highly specific nature of the infection, meant it was unlikely to present a threat to most users. But she did suggest that the malware may have the ability to delete itself from machines. "It is possible that the command and control server could erase the infection so a user may not know they have ever been targeted."
+
+The size of Flame—the initial module is thought to be about 6 megabytes, and with some 20 other modules it totals 20 megabytes in size—puts it on a completely different scale to other pieces of malware, which are typically measured in a few hundred kilobytes.
+
+What was also unusual about it, said Mr. Kamluk, was the choice of programing language. "Parts of it are written in LUA. This is a language usually used for gaming. I have never seen it used in any piece of malware before."

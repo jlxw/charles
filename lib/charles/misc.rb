@@ -14,38 +14,45 @@ module Charles
     
     
   
-    def self.analyzer
-      @analyzer ||= (
-        #http://blackwinter.github.com/ferret/classes/Ferret/Analysis.html
-        stop_words = Ferret::Analysis::EXTENDED_ENGLISH_STOP_WORDS |
-                      Ferret::Analysis::FULL_FRENCH_STOP_WORDS |
-                      Ferret::Analysis::FULL_SPANISH_STOP_WORDS |
-                      Ferret::Analysis::FULL_PORTUGUESE_STOP_WORDS |
-                      Ferret::Analysis::FULL_ITALIAN_STOP_WORDS |
-                      Ferret::Analysis::FULL_GERMAN_STOP_WORDS |
-                      Ferret::Analysis::FULL_DUTCH_STOP_WORDS |
-                      Ferret::Analysis::FULL_SWEDISH_STOP_WORDS |
-                      Ferret::Analysis::FULL_NORWEGIAN_STOP_WORDS |
-                      Ferret::Analysis::FULL_DANISH_STOP_WORDS |
-                      Ferret::Analysis::FULL_RUSSIAN_STOP_WORDS |
-                      Ferret::Analysis::FULL_FINNISH_STOP_WORDS
-        Ferret::Analysis::StandardAnalyzer.new(stop_words,true)#(Ferret::Analysis::FULL_ENGLISH_STOP_WORDS) #no stop words
-      )
+    def self.analyzer(type = :all_stop_words)
+      @analyzer||={}
+      @analyzer[type]||=self.send("analyzer_#{type}")
+    end
+    def self.analyzer_all_stop_words
+      #http://blackwinter.github.com/ferret/classes/Ferret/Analysis.html
+      stop_words = Ferret::Analysis::EXTENDED_ENGLISH_STOP_WORDS |
+                    Ferret::Analysis::FULL_FRENCH_STOP_WORDS |
+                    Ferret::Analysis::FULL_SPANISH_STOP_WORDS |
+                    Ferret::Analysis::FULL_PORTUGUESE_STOP_WORDS |
+                    Ferret::Analysis::FULL_ITALIAN_STOP_WORDS |
+                    Ferret::Analysis::FULL_GERMAN_STOP_WORDS |
+                    Ferret::Analysis::FULL_DUTCH_STOP_WORDS |
+                    Ferret::Analysis::FULL_SWEDISH_STOP_WORDS |
+                    Ferret::Analysis::FULL_NORWEGIAN_STOP_WORDS |
+                    Ferret::Analysis::FULL_DANISH_STOP_WORDS |
+                    Ferret::Analysis::FULL_RUSSIAN_STOP_WORDS |
+                    Ferret::Analysis::FULL_FINNISH_STOP_WORDS
+      Ferret::Analysis::StandardAnalyzer.new(stop_words,true)#(Ferret::Analysis::FULL_ENGLISH_STOP_WORDS) #no stop words
+    end
+    def self.analyzer_no_stop_words
+      Ferret::Analysis::StandardAnalyzer.new([],true)#no stop words
     end
   
-  
-    def self.string_to_tokens(string)
-      token_stream = self.analyzer.token_stream('',string)
-      o=[]; while(j=token_stream.next); o << j.text unless o.include?(j.text); end;
+    def self.string_to_tokens_raw(string, type = :all_stop_words)
+      token_stream = self.analyzer(type).token_stream('',string)
+      o=[]; while(j=token_stream.next); o << j; end;
       return o
     end
-    def self.string_to_clean_tokens(string)
-      tokens = string_to_tokens(string)
+    def self.string_to_tokens(string, type = :all_stop_words)
+      self.string_to_tokens_raw(string, type).collect{|token| token.text}
+    end
+    def self.string_to_clean_tokens(string, type = :all_stop_words)
+      tokens = string_to_tokens(string, type)
       tokens.delete_if{|token| token.match(/\d/)}
       tokens
     end
-    def self.string_to_clean_tokens_string(string)
-      string_to_clean_tokens(string).join(' ')
+    def self.string_to_clean_tokens_string(string, type = :all_stop_words)
+      string_to_clean_tokens(string, type).join(' ')
     end
     
     

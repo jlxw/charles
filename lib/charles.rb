@@ -5,6 +5,7 @@ require 'rubygems'
 require 'bundler/setup'
 require 'nokogiri'
 require 'htmlentities'
+require 'mechanize'
 
 require 'ferret'
 Ferret.locale = "en_US.UTF-8" #if not set ferret segfaults on chinese/jap stuff randomly
@@ -19,6 +20,12 @@ module Charles
   end
   def self.logger
     @logger ||= Logger.new(STDERR)
+  end
+  
+  def self.get(url)
+    agent = Mechanize.new{|a|a.user_agent_alias = 'Mac Mozilla'}
+    response = agent.get(url)
+    return Document.new(response.body, :url => response.uri.to_s, :agent => agent)
   end
 end
 

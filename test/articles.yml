@@ -179,6 +179,38 @@
     :author: 'Gwendolyn Ng'
     :image: 'http://news.asiaone.com/A1MEDIA/news/05May12/images/20120528.083508_dchood.jpg'
 -
+  :file: '20120529_1120_online.wsj.com'
+  :url: 'http://online.wsj.com/article/SB10001424052702303674004577433160886451978.html'
+  :expected:
+    :title: "Storied Law Firm Dewey Files Chapter 11"
+    :lede: "The embattled New York law firm Dewey & LeBoeuf LLP has filed for bankruptcy protection, a move that effectively ends what had been at its height a 1,300-lawyer global enterprise and marks one of the largest law-firm failures in U.S. history."
+    :author: 'JENNIFER SMITH and ASHBY JONES'
+    :image: 'http://si.wsj.net/public/resources/images/OB-SV369_dewey0_D_20120503161002.jpg'
+-
+  :file: '20120529_1122_online.wsj.com'
+  :url: 'http://online.wsj.com/article/SB10001424052702303674004577432412894441148.html?mod=WSJ_Tech_Europe_INTL_LSMODULE'
+  :expected:
+    :title: "Advanced Malware Targets Middle East"
+    :lede: 'Computer malware described as "the most sophisticated cyberweapon yet unleashed" has been uncovered in computers in the Middle East and may have infected machines in Europe, according to reports from antivirus researchers and software makers in Russia, Hungary and Ireland.'
+    :author: nil
+    :image: nil
+-
+  :file: '20120529_1127_smh.com.au'
+  :url: 'http://www.smh.com.au/digital-life/digital-life-news/mark-zuckerberg-makes-surprise-cameo-on-chinese-tv-20120529-1zfw2.html'
+  :expected:
+    :title: "Mark Zuckerberg makes surprise cameo on Chinese TV"
+    :lede: "BEIJING — Social media sites and blogs have lit up after eagle-eyed viewers spotted a surprise cameo in a Chinese TV documentary about the country's police force: Facebook founder Mark Zuckerberg and his now-wife, Priscilla Chan."
+    :author: nil
+    :image: 'http://images.smh.com.au/2012/05/29/3333176/art_zuckerbergs-420x0.jpg'
+-
+  :file: ''
+  :url: ''
+  :expected:
+    :title: ""
+    :lede: ""
+    :author: ''
+    :image: ''
+-
   :file: ''
   :url: ''
   :expected:

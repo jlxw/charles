@@ -18,20 +18,24 @@ module Charles
     def logger; Charles.logger; end
     
     def content(seeds={})
-      refine_content_node(content_node(seeds)).clean_inner_text
+      content_node = content_node(seeds)
+      return unless content_node
+      refine_content_node(content_node).clean_inner_text
     end
     
     def content_node(seeds={})
-      calculate_content_nodes(seeds).first[:node]
+      content_nodes = calculate_content_nodes(seeds)
+      return unless content_nodes.first
+      content_nodes.first[:node]
     end
     
     def calculate_content_nodes(seeds={})
-      default_seeds = {:title_match=>0.229310779067067,
-  :title_match_buffer=>0.162810257411916,
-  :length=>1241.17338608216,
-  :distance_from_top=>1.47525341972889,
-  :internal_nodes=>24.6534405329199,
-  :internal_nodes_buffer=>26.911565879484}
+      default_seeds = {:title_match=>0.145422959269808,
+  :title_match_buffer=>0.0174920023610796,
+  :length=>1100.27450832379,
+  :distance_from_top=>0.308408501217311,
+  :internal_nodes=>25.680381972181,
+  :internal_nodes_buffer=>20.2006169153009}
       seeds = default_seeds.merge(seeds)
       
       o = []

@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+
+require 'lib/charles'
+require 'yaml'
+
+url = ARGV.shift
+
+unless url =~ /^http/
+  url = File.read(url)
+end
+
+document = Charles.get(url)
+puts({
+  :content => document.content,
+  :titles => document.titles,
+  :images => document.images
+}.to_yaml)
+
+
+
+

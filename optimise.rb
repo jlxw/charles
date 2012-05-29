@@ -2,7 +2,6 @@
 
 require 'lib/charles'
 require 'yaml'
-require 'pp' 
 
 TEST_ARTICLES = YAML.load_file("test/articles.yml")
 
