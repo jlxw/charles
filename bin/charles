@@ -3,6 +3,8 @@
 require 'lib/charles'
 require 'yaml'
 
+Charles.options[:tmp_path] = File.dirname(__FILE__) + "/../test/tmp"  
+
 url = ARGV.shift
 
 unless url =~ /^http/
@@ -12,8 +14,8 @@ end
 document = Charles.get(url)
 puts({
   :content => document.content,
-  :titles => document.titles,
-  :images => document.images
+  :title => document.title,
+  :filtered_images => document.filtered_images.collect{|image| image[:url]}
 }.to_yaml)
 
 

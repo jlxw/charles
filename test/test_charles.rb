@@ -5,6 +5,8 @@ require 'yaml'
 
 TEST_ARTICLES = YAML.load_file("test/articles.yml")
 
+Charles.options[:tmp_path] = File.dirname(__FILE__) + "/tmp"  
+
 class CharlesTest < Test::Unit::TestCase
   #include ActiveSupport::Testing::Assertions
 
@@ -52,6 +54,16 @@ class CharlesTest < Test::Unit::TestCase
     document = Charles::Document.new(input, :url => article[:url], :sample_titles => sample_titles)
     assert document.title.include?('WSJ.com')
     assert !document.clean_title.include?('WSJ.com')
+  end
+  
+  def test_filtered_images
+    article = TEST_ARTICLES.detect{|article| article[:url] == 'http://online.wsj.com/article/SB10001424052702303674004577433160886451978.html'}
+    input = File.read("test/articles/#{article[:file]}.html")
+    document = Charles::Document.new(input, :url => article[:url])
+    assert document.filtered_images.size > 3
+    assert document.filtered_images.last[:data].size > 1000
+    assert document.filtered_images.last[:width] > 100
+    assert document.filtered_images.last[:height] > 100
   end
   
   

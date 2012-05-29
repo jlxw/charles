@@ -16,7 +16,7 @@ module Charles
     end
     
     def logger; Charles.logger; end
-    
+      
     def content(seeds={})
       content_node = content_node(seeds)
       return unless content_node
@@ -116,6 +116,10 @@ module Charles
         o[_i] = _search_normalised_score
       }
       o
+    end
+    
+    def mechanize_agent
+      @options[:mechanize_agent] ||= Mechanize.new{|a|a.user_agent_alias = 'Mac Mozilla'}
     end
 
   end

@@ -19,4 +19,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency "nokogiri"
   gem.add_dependency "htmlentities"
   gem.add_dependency "mechanize"
+  gem.add_dependency "activesupport"
+  gem.add_dependency "rack"
+  gem.add_dependency "imagesize"
 end

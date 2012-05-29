@@ -6,6 +6,9 @@ require 'bundler/setup'
 require 'nokogiri'
 require 'htmlentities'
 require 'mechanize'
+require 'active_support/cache'
+require 'active_support/cache/file_store'
+require 'image_size'
 
 require 'ferret'
 Ferret.locale = "en_US.UTF-8" #if not set ferret segfaults on chinese/jap stuff randomly
@@ -24,8 +27,18 @@ module Charles
   
   def self.get(url)
     agent = Mechanize.new{|a|a.user_agent_alias = 'Mac Mozilla'}
-    response = agent.get(url)
-    return Document.new(response.body, :url => response.uri.to_s, :agent => agent)
+    body = file_cache.fetch("Charles.get(#{url})"){ 
+      agent.get(url).body
+    }
+    return Document.new(body, :url => url, :mechanize_agent => agent)
+  end
+  
+  def self.options
+    @options ||= {}
+  end
+  
+  def self.file_cache
+    @file_cache ||= ActiveSupport::Cache::FileStore.new(Charles.options[:tmp_path], :namespace => 'charles')
   end
 end
 

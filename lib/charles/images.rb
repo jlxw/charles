@@ -41,6 +41,36 @@ module Charles
   
       return nil
     end
+    
+    def filtered_images
+      _max_proportion = 2.5
+      _min_area = 88*88
+      _filtered_images = []
+      _images = self.images.dup
+      _images.each{|url|
+        data = get_image(url)
+        next unless data
+        size = ImageSize.new(data).get_size
+        if(size[0] * size[1] > _min_area &&
+          size[0].to_f/size[1] < _max_proportion &&
+          size[1].to_f/size[0] < _max_proportion)
+          _filtered_images << {:url => url, :data => data, :width => size[0], :height => size[1]}
+        end
+      }
+      return _filtered_images
+    end
+    
+    def get_image(url)
+      _cache_key = "get_image(#{url})"
+      begin
+        Charles.file_cache.fetch(_cache_key) {
+          body = mechanize_agent.get(url, [], URI.parse(@options[:url])).body
+          body.size < 900000 ? body : nil
+        }
+      rescue StandardError, Timeout::Error
+        Charles.file_cache.write(_cache_key, nil, :expires_in => 1.hour)
+      end
+    end
   end
 end
 
