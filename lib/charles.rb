@@ -9,6 +9,7 @@ require 'mechanize'
 require 'active_support/cache'
 require 'active_support/cache/file_store'
 require 'image_size'
+require 'shiner'
 
 require 'ferret'
 Ferret.locale = "en_US.UTF-8" #if not set ferret segfaults on chinese/jap stuff randomly

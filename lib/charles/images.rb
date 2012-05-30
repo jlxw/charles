@@ -11,7 +11,7 @@ module Charles
       return unless _node
       #logger.info _node.pretty_inspect
   
-      (_node.ancestors.size/2).times do
+      (_node.ancestors.size.to_f/2).round.times do
         o=self.calculate_image_from_node(_node)
         #logger.info o.pretty_inspect
         return o if o

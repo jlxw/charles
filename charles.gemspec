@@ -22,4 +22,5 @@ Gem::Specification.new do |gem|
   gem.add_dependency "activesupport"
   gem.add_dependency "rack"
   gem.add_dependency "imagesize"
+  gem.add_dependency "shiner"
 end

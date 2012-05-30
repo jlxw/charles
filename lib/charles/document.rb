@@ -17,6 +17,10 @@ module Charles
     
     def logger; Charles.logger; end
       
+    def interesting_content(options = {:max_length => 388})
+      Shiner.shine(content, options)
+    end
+      
     def content(seeds={})
       content_node = content_node(seeds)
       return unless content_node
@@ -30,12 +34,12 @@ module Charles
     end
     
     def calculate_content_nodes(seeds={})
-      default_seeds = {:title_match=>0.145422959269808,
-  :title_match_buffer=>0.0174920023610796,
-  :length=>1100.27450832379,
-  :distance_from_top=>0.308408501217311,
-  :internal_nodes=>25.680381972181,
-  :internal_nodes_buffer=>20.2006169153009}
+      default_seeds = {:title_match=>0.0586074856962615, #0.238237272128463,0.173173520342878
+  :title_match_buffer=>0.508671373602233,
+  :length=>1246.27917099503,
+  :distance_from_top=>0.436005480844439,
+  :internal_nodes=>18.0265463704097,
+  :internal_nodes_buffer=>32.7588984705223}
       seeds = default_seeds.merge(seeds)
       
       o = []
@@ -49,7 +53,8 @@ module Charles
           :length => 1 - seeds[:length].to_f / (_n.clean_inner_tokens_text.size + seeds[:length]), #length of inner text in this node, too little = less
           :internal_nodes => seeds[:internal_nodes].to_f / (_n.internal_nodes_size + seeds[:internal_nodes] + seeds[:internal_nodes_buffer]), #number of nodes in this node, too many = less
           :distance_from_top => (1-(_rank.to_f / @nodes.size))**seeds[:distance_from_top].to_f, #how far this element is from the top of the page
-          :title_match => ((content_node_ferret_index[_i]||0.0 + seeds[:title_match_buffer]) / 1+ + seeds[:title_match_buffer])**seeds[:title_match].to_f #ferret index score, search score with page title
+          :title_match => ((content_node_ferret_index[_i]||0.0 + seeds[:title_match_buffer]) / 1 + seeds[:title_match_buffer])**seeds[:title_match].to_f, #ferret index score, search score with page title
+          #:interesting => (0.5 + _n.interesting_score) ** seeds[:interesting].to_f
           #:special_characters => (1 - (_n.inner_text.scan(/[^\s\302\240a-zA-Z]/).size.to_f / (_n.clean_inner_text.size+1)))**2 #number of special characters and numbers.. this is pretty cpu intensive!
         }
         o << {:node =>_n, :score => scores.values.inject(:*), :scores => scores}
@@ -143,6 +148,12 @@ Nokogiri::XML::Node.class_eval {
   def internal_nodes_size
     @internal_nodes_size ||= search('*').size
   end
+  #def interesting_score
+  #  @interesting_score ||= (
+  #    classifications = Shiner.classifier.classifications(clean_inner_text)
+  #    1 - classifications['Interesting'] / classifications['Uninteresting']
+  #  )
+  #end
 }
 
 

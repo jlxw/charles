@@ -14,6 +14,7 @@ end
 document = Charles.get(url)
 puts({
   :content => document.content,
+  :interesting_content => document.interesting_content,
   :title => document.title,
   :filtered_images => document.filtered_images.collect{|image| image[:url]}
 }.to_yaml)
