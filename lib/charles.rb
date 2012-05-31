@@ -26,10 +26,10 @@ module Charles
     @logger ||= Logger.new(STDERR)
   end
   
-  def self.get(url)
+  def self.get(url, options={})
     agent = Mechanize.new{|a|a.user_agent_alias = 'Mac Mozilla'}
     body = file_cache.fetch("Charles.get(#{url})"){ 
-      agent.get(url).body
+      agent.get(url,options).body
     }
     return Document.new(body, :url => url, :mechanize_agent => agent)
   end
