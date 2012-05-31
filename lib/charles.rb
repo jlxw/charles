@@ -29,9 +29,9 @@ module Charles
   def self.get(url, options={})
     agent = Mechanize.new{|a|a.user_agent_alias = 'Mac Mozilla'}
     body = file_cache.fetch("Charles.get(#{url})"){ 
-      agent.get(url,options).body
+      agent.get(url).body
     }
-    return Document.new(body, :url => url, :mechanize_agent => agent)
+    return Document.new(body, {:url => url, :mechanize_agent => agent}.merge(options))
   end
   
   def self.options
