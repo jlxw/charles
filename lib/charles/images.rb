@@ -43,6 +43,9 @@ module Charles
     end
     
     def filtered_images
+      filtered_images_extra.collect{|image| image[:url]}
+    end
+    def filtered_images_extra
       _max_proportion = 2.5
       _min_area = 88*88
       _filtered_images = []

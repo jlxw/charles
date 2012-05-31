@@ -16,7 +16,7 @@ puts({
   :content => document.content,
   :interesting_content => document.interesting_content,
   :title => document.title,
-  :filtered_images => document.filtered_images.collect{|image| image[:url]}
+  :filtered_images => document.filtered_images
 }.to_yaml)
 
 

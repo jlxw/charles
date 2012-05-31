@@ -60,10 +60,11 @@ class CharlesTest < Test::Unit::TestCase
     article = TEST_ARTICLES.detect{|article| article[:url] == 'http://online.wsj.com/article/SB10001424052702303674004577433160886451978.html'}
     input = File.read("test/articles/#{article[:file]}.html")
     document = Charles::Document.new(input, :url => article[:url])
-    assert document.filtered_images.size > 3
-    assert document.filtered_images.last[:data].size > 1000
-    assert document.filtered_images.last[:width] > 100
-    assert document.filtered_images.last[:height] > 100
+    filtered_images_extra = document.filtered_images_extra
+    assert filtered_images_extra.size > 3
+    assert filtered_images_extra.last[:data].size > 1000
+    assert filtered_images_extra.last[:width] > 100
+    assert filtered_images_extra.last[:height] > 100
   end
   
   

@@ -33,8 +33,8 @@ module Charles
           _title_words[token]||=0; _title_words[token]+=1
         }
       }
-      _threshold = (0.9 * @options[:sample_titles].size).ceil
-      _words_to_filter = _title_words.select{|k,v| v >= _threshold}.collect{|k,v| k} #select words used in more than 90% of the titles
+      _threshold = (0.8 * @options[:sample_titles].size).ceil
+      _words_to_filter = _title_words.select{|k,v| v >= _threshold}.collect{|k,v| k} #select words used in more than 80% of the titles
     end
   end
 end
