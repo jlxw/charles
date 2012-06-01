@@ -51,7 +51,7 @@ module Charles
       _filtered_images = []
       _images = self.images.dup
       _images.each{|url|
-        data = get_image(url)
+        data = Charles.get_image(url, :referer => @options[:url])
         next unless data
         size = ImageSize.new(data).get_size
         if(size[0] * size[1] > _min_area &&
@@ -62,17 +62,21 @@ module Charles
       }
       return _filtered_images
     end
-    
-    def get_image(url)
-      _cache_key = "get_image(#{url})"
-      begin
-        Charles.file_cache.fetch(_cache_key) {
-          body = mechanize_agent.get(url, [], URI.parse(@options[:url])).body
-          body.size < 900000 ? body : nil
-        }
-      rescue StandardError, Timeout::Error
-        Charles.file_cache.write(_cache_key, nil, :expires_in => 1.hour)
-      end
+  end
+  
+  def self.get_image(url, options = {})
+    logger.debug("Charles.get_image(#{url})")
+    _cache_key = "get_image(#{url})"
+    begin
+      Charles.file_cache.fetch(_cache_key) {
+        referer = @options[:referer] ? URI.parse(@options[:referer]) : nil
+        response = self.mechanize_agent.get(url, [], referer)
+        body = response.body
+        body.size < 900000 ? body : nil
+      }
+    rescue StandardError, Timeout::Error => e
+      logger.warn "Exception caught: #{e.message} (#{e.class}): #{e.backtrace.join("\n")}"
+      Charles.file_cache.write(_cache_key, nil, :expires_in => 1.hour)
     end
   end
 end

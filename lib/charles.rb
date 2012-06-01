@@ -1,5 +1,6 @@
 #require "charles/version"
 require 'pp'
+require 'logger'
 
 require 'rubygems'
 require 'bundler/setup'
@@ -27,9 +28,8 @@ module Charles
   end
   
   def self.get(url, options={})
-    agent = Mechanize.new{|a|a.user_agent_alias = 'Mac Mozilla'}
     body = file_cache.fetch("Charles.get(#{url})"){ 
-      agent.get(url).body
+      self.mechanize_agent.get(url).body
     }
     return Document.new(body, {:url => url, :mechanize_agent => agent}.merge(options))
   end
@@ -40,6 +40,10 @@ module Charles
   
   def self.file_cache
     @file_cache ||= ActiveSupport::Cache::FileStore.new(Charles.options[:tmp_path], :namespace => 'charles')
+  end
+  
+  def self.mechanize_agent
+    @mechanize_agent ||= Mechanize.new{|a|a.user_agent_alias = 'Mac Mozilla'}
   end
 end
 

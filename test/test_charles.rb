@@ -67,5 +67,4 @@ class CharlesTest < Test::Unit::TestCase
     assert filtered_images_extra.last[:height] > 100
   end
   
-  
 end

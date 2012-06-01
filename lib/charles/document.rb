@@ -122,10 +122,6 @@ module Charles
       }
       o
     end
-    
-    def mechanize_agent
-      @options[:mechanize_agent] ||= Mechanize.new{|a|a.user_agent_alias = 'Mac Mozilla'}
-    end
 
   end
 
