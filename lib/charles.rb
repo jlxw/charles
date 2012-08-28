@@ -31,7 +31,7 @@ module Charles
     body = file_cache.fetch("Charles.get(#{url})"){ 
       self.mechanize_agent.get(url).body
     }
-    return Document.new(body, {:url => url, :mechanize_agent => agent}.merge(options))
+    return Document.new(body, {:url => url}.merge(options))
   end
   
   def self.options

@@ -54,6 +54,7 @@ module Charles
         data = Charles.get_image(url, :referer => @options[:url])
         next unless data
         size = ImageSize.new(data).get_size
+        next unless size[0]
         if(size[0] * size[1] > _min_area &&
           size[0].to_f/size[1] < _max_proportion &&
           size[1].to_f/size[0] < _max_proportion)
