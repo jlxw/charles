@@ -34,6 +34,17 @@ module Charles
     end
     
     def calculate_content_nodes(seeds={})
+      
+#      [0.3098113417625427,
+# 0.07620165662163167,
+# {:length=>2800.1848215645896,
+#  :distance_from_top=>0.7534221404713024,
+#  :internal_nodes=>33.180153303145,
+#  :internal_nodes_buffer=>7.187041782323879,
+#  :title_match=>0.27657232619834626,
+#  :title_match_buffer=>0.579628492045416},
+# 0]
+
       default_seeds = {:title_match=>0.0586074856962615, #0.238237272128463,0.173173520342878
   :title_match_buffer=>0.508671373602233,
   :length=>1246.27917099503,

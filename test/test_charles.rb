@@ -3,6 +3,7 @@ require 'charles'
 require 'yaml'
 #require 'active_support/testing/assertions'
 
+YAML::ENGINE.yamler = 'syck'
 TEST_ARTICLES = YAML.load_file("test/articles.yml")
 
 Charles.options[:tmp_path] = File.dirname(__FILE__) + "/tmp"  
@@ -17,7 +18,7 @@ class CharlesTest < Test::Unit::TestCase
     _scores = {:content => [], :title => [], :image => []}
     TEST_ARTICLES.each{|article|
       next if article[:file].empty?
-      input = File.read("test/articles/#{article[:file]}.html")
+      input = File.read("test/articles/#{article[:file]}.html").encode('UTF-8', :invalid => :replace)
       document = Charles::Document.new(input, :url => article[:url])
       result = document.content
       expected = File.read("test/articles/#{article[:file]}.content.txt")
@@ -48,8 +49,7 @@ class CharlesTest < Test::Unit::TestCase
     sample_titles = ['Former ML closer Armando Benitez signs with Ducks - WSJ.com',
       'The Top 10 Clean-Tech Companies - WSJ.com',
       'Book Review: Internal Time - WSJ.com',
-      'NASA Working With Private Sector — Letters to the Editor - WSJ.com',
-      'NASA Working With Private Sector — Letters to the Editor - WSJ.com',
+      'NASA Working With Private Sector Letters to the Editor - WSJ.com',
       'San Francisco Symphony Orchestra | Radicals Ready for the Road - WSJ.com']
     document = Charles::Document.new(input, :url => article[:url], :sample_titles => sample_titles)
     assert document.title.include?('WSJ.com')

@@ -7,7 +7,7 @@ module Charles
       index = Ferret::Index::Index.new()
       index.field_infos.add_field(:content, :store => :no, :boost => 1)
       index << {:content => a}
-      search = index.search(b.gsub(/[:()\[\]{}!+"~^\-|<>=*?\\]/,'')) #remove special charcaters used by ferret query parser: http://www.davebalmain.com/api/classes/Ferret/QueryParser.html, http://www.regular-expressions.info/charclass.html
+      search = index.search(b.sanitize_encoding.gsub(/[:()\[\]{}!+"~^\-|<>=*?\\]/,'')) #remove special charcaters used by ferret query parser: http://www.davebalmain.com/api/classes/Ferret/QueryParser.html, http://www.regular-expressions.info/charclass.html
       search.max_score
     end
     
@@ -62,7 +62,7 @@ module Charles
     
     def self.normalize_string(string)
       @htmlentities||=HTMLEntities.new
-      @htmlentities.decode(normalize_unicode_characters(string.gsub(/[\s\302\240]+/,' ').strip))
+      @htmlentities.decode(normalize_unicode_characters(string.sanitize_encoding.gsub(/\s+/,' ').strip))
     end
     UNICODE_CONVERSIONS = {
       "8230" => '...',
@@ -80,5 +80,12 @@ module Charles
       TRANSLATED_CONVERSIONS.each {|k,v| string.gsub! k, v }
       string
     end
+  end
+end
+
+class String
+  def sanitize_encoding
+    return self if self.valid_encoding?
+    self.dup.force_encoding("BINARY").encode("UTF-8", :invalid => :replace, :undef => :replace, :replace => '')
   end
 end

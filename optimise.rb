@@ -1,8 +1,9 @@
 #!/usr/bin/env ruby
 
-require 'lib/charles'
+require_relative 'lib/charles'
 require 'yaml'
 
+YAML::ENGINE.yamler = 'syck'
 TEST_ARTICLES = YAML.load_file("test/articles.yml")
 
 class CharlesOptimiser
@@ -35,6 +36,7 @@ class CharlesOptimiser
         @@high_score = _score
         pp [_score, _std_dev, seeds, _scores.select{|i| i<0.1}.size]
       end
+      puts '.'
     end
   end
   def articles_scores(seeds={})
@@ -54,7 +56,7 @@ class CharlesOptimiser
     index = Ferret::Index::Index.new()
     index.field_infos.add_field(:content, :store => :no, :boost => 1)
     index << {:content => a}
-    search = index.search(b)
+    search = index.search(b.sanitize_encoding.gsub(/[:()\[\]{}!+"~^\-|<>=*?\\]/,'')) #remove special charcaters used by ferret query parser: http://www.davebalmain.com/api/classes/Ferret/QueryParser.html, http://www.regular-expressions.info/charclass.html
     search.max_score
   end
   
