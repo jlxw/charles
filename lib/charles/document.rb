@@ -66,7 +66,7 @@ module Charles
           :distance_from_top => (1-(_rank.to_f / @nodes.size))**seeds[:distance_from_top].to_f, #how far this element is from the top of the page
           :title_match => ((content_node_ferret_index[_i]||0.0 + seeds[:title_match_buffer]) / 1 + seeds[:title_match_buffer])**seeds[:title_match].to_f, #ferret index score, search score with page title
           #:interesting => (0.5 + _n.interesting_score) ** seeds[:interesting].to_f
-          #:special_characters => (1 - (_n.inner_text.scan(/[^\s\302\240a-zA-Z]/).size.to_f / (_n.clean_inner_text.size+1)))**2 #number of special characters and numbers.. this is pretty cpu intensive!
+          #:special_characters => (1 - (_n.inner_text.scan(/[^\s\u00a0a-zA-Z]/).size.to_f / (_n.clean_inner_text.size+1)))**2 #number of special characters and numbers.. this is pretty cpu intensive!
         }
         o << {:node =>_n, :score => scores.values.inject(:*), :scores => scores}
       }

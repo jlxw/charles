@@ -62,7 +62,7 @@ module Charles
     
     def self.normalize_string(string)
       @htmlentities||=HTMLEntities.new
-      @htmlentities.decode(normalize_unicode_characters(string.sanitize_encoding.gsub(/\s+/,' ').strip))
+      @htmlentities.decode(normalize_unicode_characters(string.sanitize_encoding.gsub(/[\s\u00a0]+/,' ').strip))
     end
     UNICODE_CONVERSIONS = {
       "8230" => '...',

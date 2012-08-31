@@ -18,7 +18,7 @@ module Charles
       _start = _tokens.first.start;
       _end = _tokens.last.end;
       _title = self.title.slice(_start, _end - _start)
-      _title = self.title.match(/[^\s]*#{Regexp.escape(_title)}[^\s]*/)[0].strip #include symbols or punctuation surrounding the title
+      _title = self.title.match(/[^\s\u00a0]*#{Regexp.escape(_title)}[^\s\u00a0]*/)[0].strip #include symbols or punctuation surrounding the title
     end
     
     protected
